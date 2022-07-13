@@ -12,6 +12,7 @@ public class main {
         String filename = input.nextLine();
         File file = new File("src/"+filename);
         Scanner fileline = new Scanner(file);
+        //store the alcohol data
         ArrayList<String> alcohol_data = new ArrayList<>();
 
         while(fileline.hasNext()){
