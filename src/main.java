@@ -19,25 +19,36 @@ public class main {
         while(fileline.hasNext()){
             alcohol_data.add(fileline.nextLine());
         }
-        HashMap<String,String> info = new HashMap<>();
+        HashMap<Integer,String> info = new HashMap<>();
         info = create_Map(alcohol_data.get(0));
 
         System.out.println("Which country you would like to get alcohol consumption information about? ");
-        String country = input.next();
+        String country = input.nextLine();
 
+        //create the list for the choice of country
         List<String> country_info = new ArrayList<>(); ;
         for (int i = 0; i < alcohol_data.size(); i++) {
             if(alcohol_data.get(i).contains(country)){
                country_info = get_info(alcohol_data.get(i));
             }
         }
+        //merging the lists to store the results
+        HashMap<String,String> merged_map = new HashMap<>();
+        merged_map = merge_maps(country_info,info);
+
+        System.out.println("What would like to know about the country you choose?");
+        System.out.println("choose your answer from the list below and indicate by number");
+        System.out.println(info);
+        String like_to_know = input.nextLine();
+
+        //System.out.println(merged_map.l);
 
     }
-    private static HashMap<String,String> create_Map(String details){
-        HashMap<String,String> details_map = new HashMap<>();
+    private static HashMap<Integer,String> create_Map(String details){
+        HashMap<Integer,String> details_map = new HashMap<>();
         String[] types = details.split(",");
         for (int i = 0; i < types.length; i++) {
-            details_map.put(types[i],(types[i].substring(0)) );
+            details_map.put(i,types[i]);
         }
         return details_map;
     }
@@ -49,5 +60,13 @@ public class main {
             info.add(details[i]);
         }
         return info;
+    }
+
+    private static HashMap<String,String> merge_maps(List<String> country_info,HashMap<Integer,String> inf ){
+        HashMap<String,String> merged_map = new HashMap<>();
+        for (int i = 0; i < country_info.size(); i++) {
+            merged_map.put(inf.get(i),country_info.get(i));
+        }
+        return merged_map;
     }
 }
