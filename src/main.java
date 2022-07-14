@@ -19,7 +19,15 @@ public class main {
             alcohol_data.add(fileline.nextLine());
         }
         HashMap<String,String> info = new HashMap<>();
-        //info = create_Map(alcohol_data.get(0));
+        info = create_Map(alcohol_data.get(0));
 
+    }
+    public static HashMap<String,String> create_Map(String details){
+        HashMap<String,String> details_map = new HashMap<>();
+        String[] types = details.split(",");
+        for (int i = 0; i < types.length; i++) {
+            details_map.put(types[i],(types[i].substring(0)) );
+        }
+        return details_map;
     }
 }
