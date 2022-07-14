@@ -39,10 +39,9 @@ public class main {
         System.out.println("What would like to know about the country you choose?");
         System.out.println("choose your answer from the list below and indicate by number");
         System.out.println(info);
-        String like_to_know = input.nextLine();
+        int like_to_know = input.nextInt();
 
-        //System.out.println(merged_map.l);
-
+        System.out.println(merged_map.get(info.get(like_to_know)));
     }
     private static HashMap<Integer,String> create_Map(String details){
         HashMap<Integer,String> details_map = new HashMap<>();
@@ -57,7 +56,7 @@ public class main {
         List<String> info = new ArrayList<>();
         String[] details = country_info.split(",");
         for (int i = 0; i < details.length ; i++) {
-            info.add(details[i]);
+                info.add(details[i]);
         }
         return info;
     }
