@@ -36,12 +36,14 @@ public class main {
         HashMap<String,String> merged_map = new HashMap<>();
         merged_map = merge_maps(country_info,info);
 
-        System.out.println("What would like to know about the country you choose?");
-        System.out.println("choose your answer from the list below and indicate by number");
+        System.out.println("\nWhat would like to know about the country you choose?");
+        System.out.println("choose your answer from the list below and indicate by number.");
+        System.out.println("You can also confirm the country you choose by number 0.");
+
         System.out.println(info);
         int like_to_know = input.nextInt();
 
-        System.out.println(merged_map.get(info.get(like_to_know)));
+        System.out.println("\nIn " + country + " The value of " + info.get(like_to_know) + " is " + merged_map.get(info.get(like_to_know)) + " .");
     }
     private static HashMap<Integer,String> create_Map(String details){
         HashMap<Integer,String> details_map = new HashMap<>();
